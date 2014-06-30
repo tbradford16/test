@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Enter in a list of numbers separated by spaces</p>
+
+Enter numbers: <input type="text" id="myText" value="">
+
+<button onclick="highest_num()">Find the High Number</button>
+
+<p id="high_num"></p>
+
+
+
+<script>
+function highest_num(){// this does not work.. use jQuery to only allow number items in a text box. have user inter in numbers one at a time. after user is done have user press finish to compute all added numbers.
+var x = document.getElementById("myText").value;
+var nums = [];
+var space = 1;
+for (int i = 0; i < x.length(); i++) {//loop through every char in x
+	if(!isNumber(x.charAt(i))){//if char is not a number
+	space = 1;// space is true
+	}
+	else{// if char is a number
+	  if(Boolean(space)){//if space is true
+	  nums.push(x.charAt(i));//add number to a new element in the array
+	  space = 0;// reset space to false
+	  }
+	  else{// append the number to an existing number in the current element to create a full number
+	  nums[nums.length-1] += x.charAt(i);
+	 }
+	}
+  }
+  document.getElementById("high_num").innerHTML = Math.max.apply(null, nums);
+}
+
+public boolean isNumber(var j) {//this function checks a var to see if it is a number or not
+    if (!Character.isDigit(j) {
+      return false;
+    }
+  return true;
+}
+
+function myFunction() {
+    document.getElementById("demo").innerHTML = Math.random();
+}
+</script>
+
+</body>
+</html>
